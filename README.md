@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Alaskha
 - 👀 I’m interested in ... sleeping
 - 🌱 I’m currently learning ... how to sleep
-- 💞️ I’m looking to collaborate on ... 
+- 💞️ I’m looking to collaborate on ... tiredness
 - 📫 How to reach me ... pls don't
 
 <!---
