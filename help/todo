@@ -10,9 +10,9 @@ C:\xampp\htdocs\personalFolder
 start apache and mysql
 
 vscode
-extension: php, html, SQL Language Server, SQLite Viewer
+extension: php, html, SQL Language Server, SQLite Viewer, IntelliCode, Format HTML in PHP, Tabnine AI, Blackbox AI
 
 
 html table
 https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
-
+css: https://daisyui.com/docs/install/
