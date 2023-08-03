@@ -1,0 +1,85 @@
+1. **HTML Form (`register.php`):**
+
+Create a new file named `register.php` and add the following code:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form action="register_process.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
+
+
+2. **PHP Registration Process (`register_process.php`):**
+
+<?php
+// Check if the form was submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get form data
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Validate form data
+    if (empty($username) || empty($email) || empty($password)) {
+        echo "Please fill in all the required fields.";
+        exit;
+    }
+
+    // Hash the password for security 
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Database connection
+    $host = "localhost";  // Replace with database host
+    $dbUsername = "your_db_username";  // Replace with database username
+    $dbPassword = "your_db_password";  // Replace with database password
+    $dbName = "your_db_name";  // Replace with database name
+
+    $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Insert user data into the database
+    $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $username, $email, $hashedPassword);
+
+    if ($stmt->execute()) {
+        echo "Registration successful!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
+3. **Create the Database:**
+set up a MySQL database with a table named `users`. The `users` table should have columns for `username`, `email`, and `password`.
+
+The SQL query to create the table is as follows:
+
+CREATE TABLE users (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
