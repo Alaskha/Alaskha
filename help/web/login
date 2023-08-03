@@ -1,0 +1,41 @@
+login.php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form action="login_process.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
+
+login_process.php
+<?php
+// This is a simple example with hardcoded credentials.
+$valid_username = 'user123';
+$valid_password = 'password123';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve form data
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Simple validation
+    if ($username === $valid_username && $password === $valid_password) {
+        // Successful login
+        echo "<h2>Welcome, $username!</h2>";
+    } else {
+        // Failed login
+        echo "<h2>Invalid username or password. Please try again.</h2>";
+    }
+}
+?>
