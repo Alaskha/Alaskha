@@ -5,7 +5,14 @@ node.js: https://nodejs.org/en/download
 php: https://windows.php.net/download#php-8.2 ; setup: https://code.visualstudio.com/docs/languages/php
 
 XAMPP
-C:\xampp\htdocs\personalFolder
+C:\xampp\apache\conf\httpd.conf
+LoadModule alias_module modules/mod_alias.so
+Alias /myphpfiles "C:\Users\change\path"
+<Directory "C:\Users\change\path">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
 
 start apache and mysql
 
