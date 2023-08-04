@@ -2,8 +2,7 @@ Xampp: https://sourceforge.net/projects/xampp/ ; https://sourceforge.net/project
 Vs code: https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
 mysql workbench: https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.34-winx64.msi
 node.js: https://nodejs.org/en/download
-php: https://windows.php.net/download#php-8.2 
- 
+php: https://windows.php.net/download#php-8.2 ; setup: https://code.visualstudio.com/docs/languages/php
 
 XAMPP
 C:\xampp\htdocs\personalFolder
@@ -13,21 +12,14 @@ start apache and mysql
 vscode
 extension: php, SQL Language Server, SQLite Viewer, IntelliCode, Format HTML in PHP, Tabnine AI, Tailwind CSS IntelliSense for daisyUI
 
+mysql forward engineer
+In the top menu click Model > Model Options
+In the dialogue that pops up, select MySQL on the left side
+Change Target MySQL Version to 5.7
+
+AI  _> Autoincrement!!
+
 
 html table
 https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
 css: https://daisyui.com/docs/install/
-in a cmd:
-npm install tailwindcss
-npx tailwindcss init // in my prj
-npm install daisyui
-
-tailwind.config.js:
-module.exports = {
-  // Other Tailwind CSS configurations...
-
-  plugins: [
-    require('daisyui'),
-  ],
-};
-
