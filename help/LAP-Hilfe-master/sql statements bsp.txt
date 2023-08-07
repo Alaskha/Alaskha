@@ -1,3 +1,7 @@
+Beziehungen:
+Ein Autor kann mehrere Bücher geschrieben haben, aber ein Buch wurde von genau einem Autor geschrieben (1:n-Beziehung).
+Ein Verlag kann mehrere Bücher veröffentlicht haben, aber ein Buch wurde von genau einem Verlag veröffentlicht (1:n-Beziehung).
+
 CREATE TABLE Autor (
     AutorID INT PRIMARY KEY,
     Vorname VARCHAR(50),
