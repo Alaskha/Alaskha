@@ -6,25 +6,39 @@ php: https://windows.php.net/download#php-8.2 ; setup: https://code.visualstudio
 
 XAMPP
 C:\xampp\apache\conf\httpd.conf
-LoadModule alias_module modules/mod_alias.so
-Alias /myphpfiles "C:\Users\change\path"
-<Directory "C:\Users\change\path">
-    Options Indexes FollowSymLinks
-    AllowOverride All
-    Require all granted
-</Directory>
+https://httpd.apache.org/docs/2.4/mod/mod_alias.html
+https://publib.boulder.ibm.com/httpserv/manual70/mod/mod_alias.html
+https://write.corbpie.com/apache-alias-map-url-to-a-filesystem-location/
+https://stackoverflow.com/questions/42056452/directory-alias-directory-outside-documentroot (only from alias to /dir)
 
 start apache and mysql
 
 vscode
-extension: php, SQL Language Server, SQLite Viewer, IntelliCode, Format HTML in PHP, Tabnine AI, Tailwind CSS IntelliSense for daisyUI
+extension: php, SQL Language Server, SQLite Viewer, IntelliCode, Format HTML in PHP, Tabnine AI
 
 mysql > new model > database > forward engineer
-(In the top menu click Model > Model Options, In the dialogue that pops up, select MySQL on the left side, Change Target MySQL Version to 5.7)?
+(In the top menu click Model > Model Options, In the dialogue that pops up, 
+select MySQL on the left side, Change Target MySQL Version to 5.7)?
 
 AI  _> Autoincrement!!
 
 
 html table
 https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
-css: https://daisyui.com/docs/install/
+
+Datenbank und PHP: 
+https://wiki.selfhtml.org/wiki/PHP/Tutorials/Umstieg_von_der_veralteten_MySQL-API
+https://wiki.selfhtml.org/wiki/PHP/Tutorials/Datenbanken_mit_PHP#PDO_als_Datenbankschnittstelle
+
+ CSS und HTML:
+https://www.w3schools.com/css/css_positioning.asp
+https://www.w3schools.com/html/html5_semantic_elements.asp
+https://www.w3schools.com/html/html_editors.asp
+https://little-boxes.de/lb1/6.1-style-der-aufbau-einer-css-regel.html
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
+
+PHP-Allgemein:
+https://www.w3schools.com/php/php_forms.asp
+https://www.php-kurs.com/einstieg-in-php-programmierung.htm
+
+
