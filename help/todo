@@ -15,9 +15,7 @@ https://stackoverflow.com/questions/42056452/directory-alias-directory-outside-d
 vscode
 extension: php, SQL Language Server, SQLite Viewer, IntelliCode, Format HTML in PHP, Tabnine AI
 
-mysql > new model > database > forward engineer
-(In the top menu click Model > Model Options, In the dialogue that pops up, 
-select MySQL on the left side, Change Target MySQL Version to 5.7)?
+mysql > new model > database > forward engineer (delete everything with „Visible“ for ERM)
 AI  _> Autoincrement!!
 
 html table
