@@ -1,0 +1,19 @@
+CREATE TABLE Autor (
+    AutorID INT PRIMARY KEY,
+    Vorname VARCHAR(50),
+    Nachname VARCHAR(50)
+);
+CREATE TABLE Verlag (
+    VerlagID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Ort VARCHAR(100)
+);
+CREATE TABLE Buch (
+    BuchID INT PRIMARY KEY,
+    Titel VARCHAR(200),
+    Veröffentlichungsjahr INT,
+    AutorID INT,
+    VerlagID INT,
+    FOREIGN KEY (AutorID) REFERENCES Autor(AutorID),
+    FOREIGN KEY (VerlagID) REFERENCES Verlag(VerlagID)
+);
