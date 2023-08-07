@@ -1,0 +1,2 @@
+
+DROP TRIGGER tr2_mwst

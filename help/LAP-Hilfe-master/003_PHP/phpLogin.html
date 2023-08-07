@@ -1,0 +1,99 @@
+<!-- Anmeldeformular_Labor.html -->
+<!-- Martina Janjic -->
+<!-- 04.05.2021 -->
+<!-- Version 1 -->
+<!DOCTYPE html>
+<html lang="de">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>PHP DEMO</title>
+   <style>
+      form {
+      width: 30em;
+      padding-top: 3em;
+      position: relative;
+      margin-left: 120px; 
+      padding-top: 0px;
+      }
+      input {
+      margin: 0 0 1em 31%;
+      padding: .2em .5em;
+      width: 60%;
+      background-color: #fffbf0; 
+      border: 1px solid #e7c157;  
+      }
+      label { 
+      text-align: right;
+      line-height: 1.5;
+      width: 30%;
+      position: absolute;
+      left: 0;
+      }
+      label::after {
+      content: ": ";
+      }
+      button {
+      margin-left: 31%;
+      }
+      .btnRed {background-color: #f44336;} /* Red */
+      required{
+      border: 2px red;
+      }
+      input:invalid {
+      border: 5px 1px red;
+      }
+      input:valid {
+      border: 1px solid black;
+      }
+   </style>
+   <script>
+      function fname() {
+      let form1 = document.getElementById("form1");
+      let password = form1.txtPasswort;
+      let confirm_password = form1.confirm_password;
+      
+      	if((password.value != '') && (password.value != null) && (password.value == confirm_password.value)) {
+      		return true;
+      	} else {
+      		alert ("Password and ConfirmPassword should match");
+      		password.focus();
+      		return false;
+        }
+      };
+	  
+	  function login(){
+	  fname();
+	  form1.action = "/myOwnFiles/Login.php";
+	  }
+	  function register(){
+	  fname();
+      form1.action = "/myOwnFiles/Register.php";
+	  }
+   </script>
+   <body>
+      <form id="form1" onsubmit="return fname()" method="POST">
+         <h1> Anmeldeformular </h1>
+         <h2>Konto</h2>
+         <fieldset>
+               <label for="txtUsername" >Username</label>
+               <input id="txtUsername" name="txtUsername" type="text" autofocus  placeholder="Username" required>
+         </fieldset>
+         <fieldset>
+            <p>
+               <label for="txtPasswort">Passwort</label>
+               <input type="password" name="txtPasswort" id="txtPasswort"  placeholder="Passwort" required >
+            </p>
+            <p>
+               <input type="password" id="confirm_password" placeholder="Confirm Password" required >
+            </p>
+         </fieldset>
+         <p>
+            <button id="btnLogin" onclick="login()" name="btnLogin" type="submit">Anmelden</button>
+            <button id="btnRegister" onclick="register()" name="btnRegister" type="submit">Registrieren</button>
+         </p>
+         <p>
+            <button class="button btnRed" type="reset"> Leere das Formular</button>
+         </p>
+      </form>
+   </body>
+</html>

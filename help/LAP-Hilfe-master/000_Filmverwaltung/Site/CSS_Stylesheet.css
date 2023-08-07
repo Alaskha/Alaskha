@@ -1,0 +1,37 @@
+ form {
+      width: 30em;
+      padding-top: 3em;
+      position: relative;
+      margin-left: 120px; 
+      padding-top: 0px;
+      }
+      input {
+      margin: 0 0 1em 31%;
+      padding: .2em .5em;
+      width: 60%;
+      background-color: #fffbf0; 
+      border: 1px solid #e7c157;  
+      }
+      label { 
+      text-align: right;
+      line-height: 1.5;
+      width: 30%;
+      position: absolute;
+      left: 0;
+      }
+      label::after {
+      content: ": ";
+      }
+      button {
+      margin-left: 31%;
+      }
+      .btnRed {background-color: #f44336;} /* Red */
+      required{
+      border: 2px red;
+      }
+      input:invalid {
+      border: 5px 1px red;
+      }
+      input:valid {
+      border: 1px solid black;
+      }
