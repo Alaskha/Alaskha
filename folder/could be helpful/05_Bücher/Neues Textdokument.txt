@@ -1,0 +1,7 @@
+Der Angestellte kann ein Medium aufnehmen, welches dann im Bestand eingeschrieben wird.
+Der Angestellte kann Nutzer anlegen, welcher dann in Nutzerdaten eingefügt wird.
+
+Der Nutzer kann den Bestand durchsuchen und die Treffer angezeigt bekommen.
+Der Nutzer kann Medien ausleihen, wobei der Nutzer mit dem Medium in Ausgeliehene Medien gespeichert werden.
+Der Nutzer kann das Medium verlängern, was entweder die Vorbestellung oder die Ausgeliehene Medien aktualisiert.
+Der Nutzer kann ein Medium vorbestellen, was in Vorbestellung eingeschrieben wird.

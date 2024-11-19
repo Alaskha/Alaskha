@@ -1,0 +1,5 @@
+SELECT schauspieler.Vorname,films.filmtitel from film_schauspieler
+INNER JOIN schauspieler on film_schauspieler.idschauspieler = schauspieler.idSchauspieler
+INNER JOIN films on film_schauspieler.idfilm = films.idfilm
+INNER JOIN produktionsfirma on films.idprodfirma = produktionsfirma.idprodfirma
+WHERE produktionsfirma.idprodfirma = 4

@@ -1,0 +1,88 @@
+header {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: sans-serif;
+	font-size: 3em;
+	font-weight: bold;
+	font-style: italic;
+	letter-spacing: .1em;
+	color: white;
+	text-shadow: 0 0 20px blue;
+	text-decoration: underline overline;
+	text-transform: uppercase;
+}
+nav {
+	border-style: solid;
+	border-color: white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+}
+html {
+	color: white;
+}
+body {
+	background-color: black;
+	margin: 40px;
+}
+article {
+	padding-top: 20px;
+	max-width: 1000px;
+	float: right;
+}
+#articleId{
+	padding-bottom: 20px;
+}
+section {
+	border-style: solid;
+	border-color: white;
+	box-shadow: 0 0 1em white;
+	padding: 20px;
+}
+aside {
+	float: right;
+	background-color: teal;
+	width: 40px;
+	margin-left: 30px;
+	word-wrap: break-word;
+	padding: 5px;	
+}
+.tableNames{
+	max-width: 500px;
+	float: left;
+	border-style: solid;
+	border-color: white;
+	box-shadow: 60px -16px teal;
+	padding: 70px 0;
+	transform: translate(0%, 50%);
+}
+.tableNames tr:hover {
+	background-color: #ddd;
+}
+th{
+	padding: 20px 0;
+}
+footer {
+	bottom: 0;
+	text-align: center;
+	clear: both;
+	height: 200px;
+	margin-top: -200px;
+	border-top-style: solid;
+	border-top-color: white;
+	transform: translate(0%, 100%);
+}
+.footerTable{
+  	border-collapse: collapse;
+	margin-left: auto;
+  	margin-right: auto;
+	width: 30%;
+}
+
+/*https://wiki.selfhtml.org/wiki/CSS/Tutorials/Einstieg/Stylesheets_einbindenhttps://www.ostraining.com/blog/coding/css-background-image/
+https://www.w3schools.com/howto/howto_css_table_center.asp
+https://css-tricks.com/all-about-floats/#:~:text=Float%20is%20a%20CSS%20positioning%20property.&text=In%20web%20design%2C%20page%20elements,flow%20of%20the%20web%20page.
+https://developer.mozilla.org/de/docs/Web/CSS/box-shadow
+https://www.html-seminar.de/class_und_id.htm
+
+*/
