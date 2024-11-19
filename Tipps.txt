@@ -1,0 +1,109 @@
+MySQL Workbench NICHT die 8.0.40 Version hernehmen! Probleme mit XAMPP-Verbindung.
+
+Softwaresetups auf einem USB-Stick mitbringen, um Downloads zu vermeiden.
+Softwareempfehlungen aus der Berufsschule:
+- MySQL Workbench (zum Erstellen von ER-Diagrammen, zum Ausführen von SQL-Skripten)
+	NICHT die 8.0.40 Version hernehmen! Probleme mit XAMPP-Verbindung
+- XAMPP (zum starten eines lokalen Servers)
+- VSCode (als Text- und Code-Editor)
+Ein Snipping-Tool für Screenshots dürfte bei Windows mitenthalten sein.
+
+MySQL Workbench hat "Forward Engineering" unter Database, wodurch man mit dem ER-Diagramm automatisch ein CREATE kreieren kann. Dafür muss man aber normalerweise Module Model > Model Options > MySQL > Change Target MySQL Version to 5.7
+
+MySQL Workbench hat "Forward Engineering" hat oft Probleme mit Foreign Keys. Man kann das beheben, indem man beim CREATE Text den PRIMARY KEY direkt setzt und den INDEX Teil löscht. Den Text kann man dann direkt bei phpMyAdmin im SQL-Tab eingeben.
+CREATE TABLE IF NOT EXISTS `mydb`.`student` (
+  `idstudent` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `class_idclass` INT NOT NULL,
+  PRIMARY KEY (`idstudent`, `class_idclass`),
+  INDEX `fk_student_class_idx` (`class_idclass` ASC) VISIBLE,
+  CONSTRAINT `fk_student_class`
+    FOREIGN KEY (`class_idclass`)
+    REFERENCES `mydb`.`class` (`idclass`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+=>
+
+CREATE TABLE IF NOT EXISTS `mydb`.`student` (
+  `idstudent` INT NOT NULL PRIMARY KEY,
+  `name` VARCHAR(45) NULL,
+  `class_idclass` INT NOT NULL,
+  CONSTRAINT `fk_student_class`
+    FOREIGN KEY (`class_idclass`)
+    REFERENCES `mydb`.`class` (`idclass`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+Auf XAMPP müssen sowohl Apache als auch MySQL laufen, um auf localhost/phpmyAdmin die DB sehen zu können.
+Eventuell nötig: Apache auf einen anderen Port umändern, weil Port 80 von einem anderen Programm blockiert wird. 
+C:\xampp\apache\conf\httpd.conf "Listen 80" und "ServerName localhost:80" den die "80" auf beispielsweise "81" ändern. Dann kann man sich bei http://localhost:81/phpmyadmin/ verbinden.
+
+Eigene Dateien (php, html, css) in einem Ordner in C:\xampp\htdocs haben. Mit http://localhost:[Portnummer von Apache(Default 80)]/[Ordnername]/[Dateiname.Endung] aufrufen.
+
+
+AI in MySQL Workbench table column bedeutet Auto Increment. Das ist für INT Primary Keys notwendig, weil man ihn ansonsten immer manuell angeben muss und bei Duplikaten das INSERT nicht funktioniert.
+
+Automatische Foreign-Key-Setzung vom MySQL ER-Diagramm macht die Keys automatisch zu INT, auch wenn das nicht der Fall ist -> Error beim CREATE.
+
+Je ausführlicher das ER-Diagramm, desto länger dauert das einfügen der Daten.
+
+Stell sicher, dass notwendige Daten mit NOT NULL gesetzt werden und dass du all deine Schritte erklären kannst und dokumentiert hast. Prüfer fragen nach der Abgabe meistens, dass man etwas kurz erläutert.
+Ordentlich arbeiten, weil Fehler viel Zeit wegnehmen und stressig sind.
+
+Falls irgendetwas nicht funktioniert, ist es besser das zu dokumentieren und dann beim nächsten Schritt weiterzuarbeiten, als ob es funktioniert hat. Also, beim Testen musst du keine Ausgaben angeben, sondern nur die passenden SQL-Befehle sind gefragt.
+
+
+Um PHP in einer HTML-Datei nutzen zu können, muss der HTML-Code in einer .php Datei sein.
+
+php Array von SQL-Abfrage muss mit fetch_array(MYSQLI_NUM) gemacht werden, wenn man $array[0] statt $array["columntitle"] nutzen möchte
+$row = $result -> fetch_array(MYSQLI_ASSOC);
+printf ("%s (%s)\n", $row["Lastname"], $row["Age"]);
+-
+$row = $result -> fetch_array(MYSQLI_NUM);
+printf ("%s (%s)\n", $row[0], $row[1]);
+
+
+!! Die Webseite GITHUB wurde in der LAP 2023 in Salzburg blockiert und durfte NICHT während der Prüfung genutzt werden!!
+Während der Prüfung darf man sich auf keiner Webseite anmelden. Alle Lehrmaterialien müssen öffentlich zugänglich sein. Man darf Zettel und Bücher mitbringen.
+Habe auf einer online Webseite wie GitHub alle möglichen Beispiele von HTML, PHP, SQL und JavaScript und kenne sie gut genug, um schnell die passenden Sachen herauskopieren zu können.
+Hab auch ein formatiertes Word-Dokument wie einen Laborbericht von der Berufsschule als Dokumentationsgrundlage, um ein schönes Dokument abgeben zu können.
+
+Jeder dokumentierte Code muss richtig formatiert sein, um leicht leserlich zu sein. Verwende online Webseiten wie beispielsweise einen HTML-Beautifier, um dein HTML-Code lesbar zu halten.
+
+Es werden Webseiten erwartet die sich dynamisch dem Format von Handys oder Desktops anpassen. Bootstrap macht das einfacher.
+
+Installiere Bootstrap
+Öffne PowerShell in Windows
+npm i bootstrap@5.3.3
+
+
+QR-Code Übungsbeispiel auf den letzten zwei Seiten:
+https://www.wko.at/ooe/bildung-lehre/themenkatalog-applikationsentwicklung-coding-v2-2024.pdf
+
+Praktische Prüfarbeit 2024
+Die gesamte Prüfarbeit ist zu dokumentieren (u. a. auch Sourcecode).
+1. Teil der Prüfarbeit (Vormittag) – Arbeitszeit 3,5 Stunden
+Folgende Punkte können beim 1. Teil der Prüfarbeit abgeprüft werden:
+Datenbank/Konzeption eines Tests:
+- Entwicklung einer Datenbank (ER-Diagramm in der 3. Normalform)
+- Beziehungen (1:1, 1:n)
+- SQL-Datenbankerzeugung (MySQL)
+- Softwaretest
+2. Teil der Prüfarbeit (Nachmittag) – Arbeitszeit 3,5 Stunden
+Folgende Punkte können beim 2. Teil der Prüfarbeit abgeprüft werden:
+Anpassung einer Bedienoberfläche:
+- Softwareinstallation und -konfiguration einer beliebigen Freeware (z. B. PHP, MySQL)
+- Erstellen von Applikationen mit React Native
+- Datenbankerzeugung anhand einer vorgegebenen Datenbank inkl. Testeinträge
+- Programmieren einer Bedienoberfläche
+- Suche und Ausgabe von Inhalten über eine Bedienoberfläche
+- Berechnungen
+- Fehlermeldungen
+- Einsatz von Frameworks (z. B. Bootstrap) zur Gestaltung von Oberflächen und clientseitigen 
+Skriptsprachen (z. B. JavaScript)/Programmiersprachen
+
+
